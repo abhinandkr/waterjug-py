@@ -20,7 +20,8 @@ def Solve(queue, counter):
 	#a = raw_input()
 	counter += 1
 	if (jugs[0] == Z and jugs[1] == 0):
-		print counter, "Solution found!"
+		print "Solution found!"
+		print "Approx count: ", counter
 		return
 	ApplyRule(jugs, queue)
 	Solve(queue, counter)
