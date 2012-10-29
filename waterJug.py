@@ -1,3 +1,4 @@
+#Water jug problem in Python
 import sys
 
 jugs = [0,0]
