@@ -8,9 +8,9 @@ over = []
 counter = 1
 # Rules
 
-X = int(raw_input("Jug 1: "))
-Y = int(raw_input("Jug 2: "))
-Z = int(raw_input("Final in jug 1: " ))
+J1 = int(raw_input("Jug 1: "))
+J2 = int(raw_input("Jug 2: "))
+rem = int(raw_input("Final in jug 1: " ))
 
 def Solve(queue, counter):
 	jugs = queue.pop(0)
@@ -19,7 +19,7 @@ def Solve(queue, counter):
 	#print counter
 	#a = raw_input()
 	counter += 1
-	if (jugs[0] == Z and jugs[1] == 0):
+	if (jugs[0] == rem and jugs[1] == 0):
 		print "Solution found!"
 		print "Approx count: ", counter
 		return
@@ -36,13 +36,13 @@ def ApplyRule(jugs, queue):
 	x = jugs[0]
 	y = jugs[1]
 	
-	if x < 4: 
+	if x < J1: 
 		print "Rule 1"
-		Append(queue, [X,y])
+		Append(queue, [J1,y])
 		
-	if y < 3: 
+	if y < J2: 
 		print "Rule 2"
-		Append(queue, [x,Y])
+		Append(queue, [x,J2])
 		
 	if x > 0: 
 		print "Rule 5"
@@ -52,24 +52,24 @@ def ApplyRule(jugs, queue):
 		print "Rule 6"
 		Append(queue, [x,0])
 	
-	if x + y >= X and y > 0: 
+	if x + y >= J1 and y > 0: 
 		print "Rule 7"
-		Append(queue, [X,y-X+x])
+		Append(queue, [J1,y-J1+x])
 		
-	#if x + y >= Y and x > 0: 
+	#if x + y >= J2 and x > 0: 
 		#print "Rule 8"
-		#Append(queue, [x-Y+y,Y])
+		#Append(queue, [x-J2+y,J2])
 		
-	if x + y <= X and y > 0: 
+	if x + y <= J1 and y > 0: 
 		print "Rule 9"
 		Append(queue, [x+y,0])
 		
-	#if x + y <= Y and x > 0: 
+	#if x + y <= J2 and x > 0: 
 		#print "Rule 10"; Append(queue, [0,x+y])
 		
-	if x == 0 and y == Z: 
+	if x == 0 and y == rem: 
 		print "Rule 11"
-		Append(queue, [Z,0])	
+		Append(queue, [rem,0])	
 	
 Solve(queue, 0)
 
